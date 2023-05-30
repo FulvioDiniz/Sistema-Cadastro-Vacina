@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="255.0" prefWidth="411.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poov.cadastrovacina.controller.TelaAlterarVacinaController">
+   <children>
+      <Label layoutX="32.0" layoutY="27.0" text="Código:" />
+      <TextField fx:id="codigoTextField" disable="true" layoutX="88.0" layoutY="23.0" />
+      <Label layoutX="38.0" layoutY="60.0" text="Nome:" />
+      <TextField fx:id="nomeTextField" layoutX="88.0" layoutY="55.0" prefHeight="24.0" prefWidth="289.0" />
+      <Label layoutX="14.0" layoutY="90.0" text="Descrição:" />
+      <TextArea fx:id="descricaoTextArea" layoutX="88.0" layoutY="88.0" prefHeight="100.0" prefWidth="289.0" />
+      <Button fx:id="alterarButton" layoutX="88.0" layoutY="204.0" mnemonicParsing="false" onAction="#alterarButtonClicado" text="Alterar" />
+      <Button fx:id="fecharButton" layoutX="284.0" layoutY="204.0" mnemonicParsing="false" onAction="#fecharButtonClicado" text="Fechar" />
+   </children>
+</AnchorPane>

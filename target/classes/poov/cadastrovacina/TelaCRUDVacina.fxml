@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="526.0" prefWidth="792.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poov.cadastrovacina.controller.CrudVacinaController">
+   <children>
+      <Button fx:id="pesquisarButton" layoutX="363.0" layoutY="57.0" mnemonicParsing="false" onAction="#pesquisarButtonClicado" text="Pesquisar" />
+      <TableView fx:id="vacinaTableView" editable="true" layoutX="7.0" layoutY="122.0" prefHeight="348.0" prefWidth="777.0" tableMenuButtonVisible="true">
+        <columns>
+          <TableColumn fx:id="codigoTableColumn" prefWidth="126.0" text="Código" />
+          <TableColumn fx:id="nomeTableColumn" prefWidth="391.0" text="Nome" />
+            <TableColumn fx:id="descricaoTableColumn" prefWidth="130.0" text="Descrição" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Label layoutX="23.0" layoutY="24.0" text="Código:" />
+      <Label layoutX="31.0" layoutY="53.0" text="Nome:" />
+      <Label layoutX="15.0" layoutY="82.0" text="Desrição:" />
+      <TextField fx:id="codigoTextField" layoutX="80.0" layoutY="20.0" prefHeight="24.0" prefWidth="117.0" />
+      <TextField fx:id="nomeTextField" layoutX="80.0" layoutY="49.0" prefHeight="24.0" prefWidth="234.0" />
+      <TextField fx:id="descricaoTextField" layoutX="80.0" layoutY="78.0" prefHeight="24.0" prefWidth="234.0" />
+      <Button fx:id="novaButton" layoutX="44.0" layoutY="483.0" mnemonicParsing="false" onAction="#novaButtonClicado" text="Nova" />
+      <Button fx:id="editarButton" layoutX="170.0" layoutY="483.0" mnemonicParsing="false" onAction="#editarButtonClicado" text="Editar" />
+      <Button fx:id="removerButton" layoutX="286.0" layoutY="483.0" mnemonicParsing="false" onAction="#removerButtonClicado" text="Remover" />
+      <Button fx:id="fecharButton" layoutX="424.0" layoutY="483.0" mnemonicParsing="false" onAction="#fecharButtonClicado" text="Fechar" />
+      <Button fx:id="limparButton" layoutX="468.0" layoutY="57.0" mnemonicParsing="false" onAction="#limparButtonClicado" text="Limpar" />
+   </children>
+</AnchorPane>

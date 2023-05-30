@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="267.0" prefWidth="397.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poov.cadastrovacina.controller.TelaCadastroVacinaController">
+   <children>
+      <Label layoutX="28.0" layoutY="36.0" text="Código:" />
+      <TextField fx:id="textFieldCodigo" disable="true" layoutX="84.0" layoutY="32.0" />
+      <Label layoutX="34.0" layoutY="69.0" text="Nome:" />
+      <TextField fx:id="textFieldNome" layoutX="84.0" layoutY="64.0" prefHeight="24.0" prefWidth="289.0" />
+      <Label layoutX="10.0" layoutY="99.0" text="Descrição:" />
+      <TextArea fx:id="textAreaDescricao" layoutX="84.0" layoutY="97.0" prefHeight="100.0" prefWidth="289.0" />
+      <Button fx:id="buttonCadastrar" layoutX="22.0" layoutY="213.0" mnemonicParsing="false" onAction="#cadastrarClicado" text="Cadastrar" />
+      <Button fx:id="buttonLimpar" layoutX="156.0" layoutY="213.0" mnemonicParsing="false" onAction="#limparClicado" text="Limpar" />
+      <Button fx:id="buttonFechar" layoutX="280.0" layoutY="213.0" mnemonicParsing="false" onAction="#fecharClicado" text="Fechar" />
+   </children>
+</AnchorPane>

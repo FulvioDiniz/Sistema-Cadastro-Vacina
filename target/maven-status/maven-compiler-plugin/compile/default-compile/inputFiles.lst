@@ -1,9 +1,11 @@
 /home/zavi6213/Downloads/cadastrovacina/src/main/java/poov/cadastrovacina/controller/TelaAlterarVacinaController.java
 /home/zavi6213/Downloads/cadastrovacina/src/main/java/poov/cadastrovacina/dao/core/DAOFactory.java
+/home/zavi6213/Downloads/cadastrovacina/src/main/java/poov/cadastrovacina/model/Lote.java
 /home/zavi6213/Downloads/cadastrovacina/src/main/java/poov/cadastrovacina/dao/core/ConnectionFactory.java
 /home/zavi6213/Downloads/cadastrovacina/src/main/java/poov/cadastrovacina/controller/TelaCadastroVacinaController.java
 /home/zavi6213/Downloads/cadastrovacina/src/main/java/poov/cadastrovacina/controller/CrudVacinaController.java
 /home/zavi6213/Downloads/cadastrovacina/src/main/java/poov/cadastrovacina/dao/core/GenericJDBCDAO.java
+/home/zavi6213/Downloads/cadastrovacina/src/main/java/poov/cadastrovacina/dao/LoteDAO.java
 /home/zavi6213/Downloads/cadastrovacina/src/main/java/poov/cadastrovacina/controller/TelaAlterarVacina.java
 /home/zavi6213/Downloads/cadastrovacina/src/main/java/module-info.java
 /home/zavi6213/Downloads/cadastrovacina/src/main/java/poov/cadastrovacina/App.java
@@ -13,4 +15,6 @@
 /home/zavi6213/Downloads/cadastrovacina/src/main/java/poov/cadastrovacina/model/Vacina.java
 /home/zavi6213/Downloads/cadastrovacina/src/main/java/poov/cadastrovacina/dao/ConexaoFactoryMySQL.java
 /home/zavi6213/Downloads/cadastrovacina/src/main/java/poov/cadastrovacina/dao/ConexaoFactoryPostgreSQL.java
+/home/zavi6213/Downloads/cadastrovacina/src/main/java/poov/cadastrovacina/controller/TelaProcurarLoteController.java
 /home/zavi6213/Downloads/cadastrovacina/src/main/java/poov/cadastrovacina/model/filter/VacinaFilter.java
+/home/zavi6213/Downloads/cadastrovacina/src/main/java/poov/cadastrovacina/model/filter/LoteFilter.java

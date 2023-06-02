@@ -39,6 +39,9 @@ import poov.cadastrovacina.model.filter.VacinaFilter;
 public class CrudVacinaController implements Initializable {
 
     @FXML
+    private Button LoteButton;
+
+    @FXML
     private TableView<Vacina> vacinaTableView;
 
     @FXML
@@ -79,13 +82,28 @@ public class CrudVacinaController implements Initializable {
 
     private Stage stageCadastro;
     private Stage stageAlterar;
+    private Stage stageLote;
     private TelaAlterarVacinaController telaAlterarVacinaController;
+    
+    private TelaProcurarLoteController telaLoteController;
+   
+    
 
     private DAOFactory factory;
 
     public CrudVacinaController() {
         ConnectionFactory conexaoFactory = new ConexaoFactoryPostgreSQL("localhost:5433/poov", "postgres", "12345");
         factory = new DAOFactory(conexaoFactory);
+    }
+
+    @FXML
+    void Lotebuttonclicado(ActionEvent event) {
+        if (stageLote.getOwner() == null) {
+            stageLote.initOwner(((Button) event.getSource()).getScene().getWindow());
+        }
+        stageLote.showAndWait();
+       
+
     }
 
     @FXML
@@ -171,7 +189,7 @@ public class CrudVacinaController implements Initializable {
                     VacinaDAO dao = factory.getDAO(VacinaDAO.class);
                     vacina.setSituacao(Situacao.INATIVO);
                     dao.update(vacina);
-                    pesquisarButtonClicado(event);
+                    
                 } finally {
                     factory.fecharConexao();
                 }
@@ -183,6 +201,7 @@ public class CrudVacinaController implements Initializable {
             alert.setContentText("Selecione uma vacina na tabela para remover!");
             alert.showAndWait();
         }
+        pesquisarButtonClicado(event);
     }
 
     @Override
@@ -234,6 +253,19 @@ public class CrudVacinaController implements Initializable {
             stageAlterar.setTitle("Alteração de Vacina");
             stageAlterar.setResizable(false);
             stageAlterar.initModality(Modality.WINDOW_MODAL);
+
+
+            stageLote = new Stage();
+            fxmlLoader = new FXMLLoader(App.class.getResource("/poov/cadastrovacina/TelaLoteVacina.fxml"));
+            parent = fxmlLoader.load();
+            telaLoteController = fxmlLoader.getController();
+            telaLoteController.setDAOFactory(factory);
+            Scene sceneLote = new Scene(parent);
+            stageLote.setScene(sceneLote);    
+            stageLote.setTitle("Lote de Vacina");
+            stageLote.setResizable(false);
+            stageLote.initModality(Modality.WINDOW_MODAL);
+
         } catch (Exception e) {
             Alert alert = new Alert(AlertType.ERROR);
             alert.initModality(Modality.WINDOW_MODAL);

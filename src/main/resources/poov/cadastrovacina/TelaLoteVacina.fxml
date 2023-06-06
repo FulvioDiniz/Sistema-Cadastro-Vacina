@@ -12,9 +12,10 @@
       <TableView fx:id="TableLote" layoutX="16.0" layoutY="123.0" prefHeight="251.0" prefWidth="568.0">
         <columns>
           <TableColumn fx:id="NomeVacina" prefWidth="117.0" text="Nome Vacina" />
-          <TableColumn fx:id="QuantidadeLote" prefWidth="98.0" text="Quantidade" />
-            <TableColumn fx:id="DescricaoVacina" prefWidth="236.0" text="Descricao" />
-            <TableColumn fx:id="ValidadeVacina" minWidth="0.0" prefWidth="116.0" text="Validade" />
+          <TableColumn fx:id="QuantidadeLote" prefWidth="164.0" text="Quantidade" />
+            <TableColumn fx:id="DescricaoVacina" prefWidth="170.0" text="Descricao" />
+            <TableColumn fx:id="ValidadeVacina" minWidth="0.0" prefWidth="66.0" text="Validade" />
+            <TableColumn fx:id="CodigoTextField" prefWidth="50.0" text="codigo" />
         </columns>
       </TableView>
       <Button fx:id="ButtonPesquisar" layoutX="219.0" layoutY="52.0" mnemonicParsing="false" onAction="#ButtonpesquiasrClicado" text="Pesquisar" />

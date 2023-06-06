@@ -10,6 +10,7 @@ import java.util.List;
 import poov.cadastrovacina.dao.core.GenericJDBCDAO;
 import poov.cadastrovacina.model.Lote;
 import poov.cadastrovacina.model.Situacao;
+import poov.cadastrovacina.model.Vacina;
 import poov.cadastrovacina.model.filter.LoteFilter;
 
 
@@ -25,12 +26,24 @@ public class LoteDAO extends GenericJDBCDAO<Lote, Long> {
     private static final String UPDATE_QUERY = "UPDATE lote SET nome=?, descricao=?, situacao=? WHERE codigo=?";
     private static final String CREATE_QUERY = "INSERT INTO LOTE (nome, descricao, situacao) VALUES (?, ?, ?)";
     private static final String REMOVE_QUERY = "DELETE FROM LOTE WHERE codigo=?";
-    private static final String FIND_BY_LOTE_VACINA = "SELECT lote.codigo, lote.validade, lote.situacao, vacina.nome, vacina.codigo FROM LOTE INNER JOIN VACINA ON vacina.codigo = lote.codigo_vacina WHERE vacina.codigo = ? AND vacina.Situacao = 'ATIVO';";
+    private static final String FIND_BY_LOTE_VACINA = "SELECT lote.validade, lote.situacao, lote.nro_Doses_Atual, vacina.nome AS nomevacina, vacina.descricao, vacina.codigo FROM LOTE INNER JOIN VACINA ON vacina.codigo = lote.codigo_vacina WHERE vacina.Situacao = 'ATIVO'";
 
     @Override
     protected Lote toEntity(ResultSet resultSet) throws SQLException {
         Lote lote = new Lote();
         lote.setCodigo(resultSet.getLong("codigo"));
+        lote.setDescicao(resultSet.getString("descricao"));
+        lote.setNomeVacina(resultSet.getString("nomevacina"));
+        //lote.setNroDosesAtual(resultSet.getInt("nroDosesAtual"));
+        lote.setValidade(resultSet.getDate("validade"));        
+
+        Vacina vacina = new Vacina();
+        vacina.setCodigo(resultSet.getLong("codigo"));
+        vacina.setNome(resultSet.getString("nomevacina"));
+        vacina.setDescricao(resultSet.getString("descricao"));
+
+        lote.setVacina(vacina);
+
         
         if (resultSet.getString("situacao").equals("ATIVO")) {
             lote.setSituacao(Situacao.ATIVO);
@@ -119,21 +132,13 @@ public class LoteDAO extends GenericJDBCDAO<Lote, Long> {
         String query = FIND_BY_LOTE_VACINA;
 
         if (filtro.getCodigo() != null) {
-            query += "AND codigo = ?";
+            query += "AND vacina.codigo = ?";
         } 
-       
         try {
             PreparedStatement statement = connection.prepareStatement(query);
             if (filtro.getCodigo() != null) {
                 statement.setLong(1, filtro.getCodigo());
                 parametro++;
-            }
-            if (filtro.getVacina().getNome() != null) {
-                statement.setString(parametro, "%" + filtro.getVacina().getNome().toLowerCase() + "%");
-                parametro++;
-            }
-            if (filtro.getVacina().getDescricao() != null) {
-                statement.setString(parametro, "%" + filtro.getVacina().getDescricao() .toLowerCase() + "%");
             }
             System.out.println(statement.toString());
             ResultSet resultSet = statement.executeQuery();

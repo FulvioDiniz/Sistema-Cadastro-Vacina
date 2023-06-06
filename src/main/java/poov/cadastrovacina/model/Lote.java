@@ -1,5 +1,6 @@
 package poov.cadastrovacina.model;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 public class Lote {
@@ -9,6 +10,10 @@ public class Lote {
     private int nroDosesLote;
     private Vacina vacina;
     private Situacao situacao = Situacao.ATIVO;
+    private String descicao;
+    private String nomeVacina;
+    
+
     
     public Lote() {
         Validade = LocalDate.now();
@@ -56,8 +61,8 @@ public class Lote {
         this.codigo = codigo;
     }
 
-    public void setValidade(LocalDate Validade) {
-        this.Validade = Validade;
+    public void setValidade(LocalDate date) {
+        this.Validade = date;
     }
 
     public void setNroDosesAtual(int nroDosesAtual) {
@@ -80,6 +85,9 @@ public class Lote {
         this.situacao = situacao;
     }
 
+    
+
+
     @Override
     public String toString() {
         return "codigo: " + codigo + "\nValidade: " + Validade + "\nnroDosesAtual: " + nroDosesAtual + "\nnroDosesLote: " + nroDosesLote + "\nvacina: " + vacina;
@@ -96,5 +104,24 @@ public class Lote {
     @Override
     public int hashCode() {
         return this.codigo.hashCode();
+    }
+
+    public String getDescicao() {
+        return descicao;
+    }
+
+    public void setDescicao(String descicao) {
+        this.descicao = descicao;
+    }
+
+    public String getNomeVacina() {
+        return nomeVacina;
+    }
+
+    public void setNomeVacina(String nomeVacina) {
+        this.nomeVacina = nomeVacina;
+    }
+
+    public void setValidade(Date date) {
     }
 }
